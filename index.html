@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacked</title>
+    <title>System Alert</title>
 </head>
 <body>
     <script>
         function sendNotification() {
             if (Notification.permission === "granted") {
-                new Notification("You are hacked!");
+                new Notification("System Alert", {
+                    body: "You are hacked!",
+                    icon: "https://upload.wikimedia.org/wikipedia/commons/5/55/Google_Material_Design_Warning.svg" // Chromebook system-style warning icon
+                });
             } else if (Notification.permission !== "denied") {
                 Notification.requestPermission().then(permission => {
                     if (permission === "granted") {
-                        new Notification("You are hacked!");
+                        new Notification("System Alert", {
+                            body: "You are hacked!",
+                            icon: "https://upload.wikimedia.org/wikipedia/commons/5/55/Google_Material_Design_Warning.svg"
+                        });
                     }
                 });
             }
